@@ -1,18 +1,35 @@
-import { useContractRead, Address } from 'wagmi';
-import config from '../utils/vyktContract.json';
 import makeBlockie from 'ethereum-blockies-base64';
+import { ethers } from 'ethers';
+import { useState, useEffect } from 'react';
+import config from '../utils/vyktContract.json';
 
-export const useFetchImageURI = (userAddress: string) => {
-  const { data, refetch } = useContractRead({
-    address: config.address as Address,
-    abi: config.abi,
-    functionName: 'getCurrentImageURI',
-    args: [userAddress],
-  });
+export const useFetchImageURI = (address: string) => {
+  const [data, setData] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  if (data === '') {
-    return { data: makeBlockie(userAddress), refetch };
-  } else {
-    return { data, refetch };
-  }
+  useEffect(() => {
+    async function getProfile() {
+      setIsLoading(true);
+      const provider = new ethers.providers.JsonRpcProvider(config.rpc);
+      const contract = new ethers.Contract(
+        config.address,
+        config.abi,
+        provider
+      );
+
+      const data = await contract.getCurrentImageURI(address);
+
+      if (data === '') {
+        setData(makeBlockie(address));
+        setIsLoading(false);
+        return;
+      }
+      setData(data);
+      setIsLoading(false);
+    }
+
+    getProfile();
+  }, [address]);
+
+  return { data, isLoading };
 };

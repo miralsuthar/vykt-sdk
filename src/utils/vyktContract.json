@@ -1,5 +1,6 @@
 {
   "address": "0xB2142500584152A65A6c6062c91c9af4AeEe9190",
+  "rpc": "https://rpc.testnet.mantle.xyz/",
   "abi": [
     {
       "inputs": [
