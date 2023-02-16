@@ -40,37 +40,7 @@ pnpm install vykt-sdk
 
 ## Quick Start
 
-To make the most of the vykt-sdk, it's important to use wagmi alongside them.
-Be sure⚠ to wrap your app using wagmiConfig and pass the client as an argument.
-Also, add mantle testnet as one of your chains. 
-
-```typescript
-const mantleTestnet: Chain = {
-  id: 5001,
-  name: "Mantle Testnet",
-  network: "mantle testnet",
-  nativeCurrency: {
-    decimals: 18,
-    name: "BIT",
-    symbol: "BIT",
-  },
-  rpcUrls: {
-    default: {
-      http: ["https://rpc.testnet.mantle.xyz/"],
-    },
-    public: {
-      http: ["https://rpc.testnet.mantle.xyz/"],
-    },
-  },
-  blockExplorers: {
-    default: {
-      name: "Mantle Explorer",
-      url: "https://explorer.testnet.mantle.xyz/",
-    },
-  },
-  testnet: true,
-};
-```
+The vykt-sdk is currently very straightforward to use, as it only has one component and hook. However, more features will be added soon to make it even easier to display profiles.
 
 ### Component
 
