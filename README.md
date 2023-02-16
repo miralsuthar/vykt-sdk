@@ -56,7 +56,7 @@ export function App() {
   return (
     <>
       {isConnected && (
-        <VyktProfile address={address as Address} size="lg" type="circle" />
+        <VyktProfile address={address!} size="lg" type="circle" />
       )}
     </>
   );
