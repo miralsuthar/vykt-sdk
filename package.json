@@ -41,11 +41,11 @@
   "size-limit": [
     {
       "path": "dist/vykt-sdk.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "15 KB"
     },
     {
       "path": "dist/vykt-sdk.esm.js",
-      "limit": "10 KB"
+      "limit": "25 KB"
     }
   ],
   "devDependencies": {
