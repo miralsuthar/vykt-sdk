@@ -7,8 +7,6 @@
 
 ---
 
-<br>
-
 ## Introduction 
 
 Welcome to the Vykt-SDK, your one-stop solution for displaying personalized profile pictures on the Ethereum blockchain. Using [Vykt](https://vykt.vercel.app/), users can choose their own profile picture for their public address, adding a unique touch to their wallets.
